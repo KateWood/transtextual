@@ -11,13 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20150701173334) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -51,5 +48,4 @@ ActiveRecord::Schema.define(version: 20150701173334) do
 
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
-
 end
