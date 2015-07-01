@@ -101,6 +101,9 @@ GEM
       thor (~> 0.19)
     hashie (3.4.2)
     http_parser.rb (0.6.0)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.3.0)
       activesupport (>= 3.0.0, < 5)
@@ -224,6 +227,7 @@ DEPENDENCIES
   figaro
   globalize3
   google-translate
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   omniauth
