@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # config/routes.rb
+  get "/auth/:provider/callback" => "sessions#create"
+
   get 'sessions/new'
 
   get 'sessions/show'
@@ -6,6 +9,9 @@ Rails.application.routes.draw do
   get 'sessions/create'
 
   get 'sessions/destroy'
+
+
+  get 'auth/logout' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
