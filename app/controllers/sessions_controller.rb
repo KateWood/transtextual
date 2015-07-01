@@ -1,23 +1,29 @@
 class SessionsController < ApplicationController
-  def new
-  end
-
   def show
     redirect_to root_path unless session['auth']
-    @auth = session['auth']
+    @auth = session[:user_id]
   end
 
   
   def create
     # Fetches the OAuth response info
     @auth = request.env['omniauth.auth']
-    session['auth'] = @auth
-    redirect_to sessions_show_path
+    if User.where(:fb_id => @auth["uid"]).first
+      @user = User.where(:fb_id => @auth["uid"]).first
+    else
+    @user = User.create(
+      :first_name => @auth["info"]["name"],
+      :photo => @auth["info"]["image"],
+      :fb_id => @auth["uid"],
+      )
+    end
+    session[:user_id] = @user.id
+    redirect_to user_path(@user)
   end
 
 
   def destroy
-    session['auth'] = nil
+    session[:user_id] = nil
     redirect_to root_path
   end
 end
