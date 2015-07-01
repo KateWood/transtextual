@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-  get 'conversations/create'
+  resources :users
 
-  get 'conversations/show'
-
-  get 'users/index'
-
-  get 'users/new'
-
-  get 'users/create'
+  resources :conversations do
+    resources :messages
+  end
 
   get 'sessions/new'
 
@@ -21,7 +17,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'sessions#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
