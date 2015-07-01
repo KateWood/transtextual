@@ -32,6 +32,10 @@ gem 'figaro'
 
 gem 'google-translate'
 
+gem 'private_pub'
+
+gem 'thin'
+
 gem 'easy_translate'
 
 gem 'globalize3'
