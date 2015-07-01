@@ -30,6 +30,8 @@ gem 'figaro'
 gem 'google-translate'
 
 gem 'easy_translate'
+
+gem 'globalize3'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
